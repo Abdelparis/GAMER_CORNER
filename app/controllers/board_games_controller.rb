@@ -1,6 +1,6 @@
 class BoardGamesController < ApplicationController
   def index
-    @board_games = policy_scope(Bord_game).order(created_at: :desc)
+    @board_games = policy_scope(BoardGame).order(created_at: :desc)
     @params = params[:search]
     if !@params.present?
       @board_games = BoardGame.all
