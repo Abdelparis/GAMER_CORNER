@@ -28,7 +28,6 @@ puts 'Creating 3 fake board games...'
   board_game.save!
 end
 
-
 rentings = Renting.create(
   starting_date: Faker::Date.between(from: 2.days.ago, to: 1.days.ago),
   ending_date: Faker::Date.between(from: Date.today, to: Date.today),

@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @rentings = Renting.where(user: current_user)
+  end
 end

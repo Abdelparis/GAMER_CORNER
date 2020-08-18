@@ -1,4 +1,5 @@
 class RentingsController < ApplicationController
+
   def new
     @renting = Renting.new
     authorize @renting
@@ -21,4 +22,5 @@ class RentingsController < ApplicationController
   def renting_params
     params.require(:renting).permit(:id)
   end
+
 end
