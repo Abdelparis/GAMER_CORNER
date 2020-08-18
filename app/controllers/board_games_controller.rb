@@ -12,6 +12,7 @@ class BoardGamesController < ApplicationController
   end
 
   def show
+    @renting = Renting.new
     @board_game = BoardGame.find(params[:id])
     authorize @board_game
   end
