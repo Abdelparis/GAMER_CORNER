@@ -5,12 +5,23 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  justify-content: space-center;
+  width: 70%;
+  border-radius: 30px;
 }
+
+.card-user{
+  display: flex;
+}
+
+.card-user img{
+  margin-left: -20px;
+}
+
 
 .card-product img {
   width: 100px;
   object-fit: cover;
-  margin-left:15px
 }
 
 .card-product h2 {
@@ -26,6 +37,24 @@
   margin-bottom: 0;
   margin-top: 8px;
 }
+
+.card-description {
+  margin-right:40px;
+  width: 50%;
+}
+
+.card-description p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-description {
+  margin-right :10px;
+}
+
 
 .card-product .card-product-infos {
   padding: 16px;

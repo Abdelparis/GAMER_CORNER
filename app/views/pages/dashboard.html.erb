@@ -6,15 +6,37 @@
       <ul class = "d-flex align-items-center justify-content-center">
 
        <%@rentings.each do |renting| %>
-      <li>
-        <div class = card-product>
+      <li style = "list-style-type: none;">
+        <div class = "card-product justify-content-center">
+          <div class= "card-user d-flex">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="card-product-infos">
-            <h2>Nickanem</h2>
+            <h2>Nickname</h2>
             <p><%=renting.user.email%></p>
           </div>
-        <h2><%=renting.starting_date%></h2>
-        <%=renting.review_content%>
+
+         </div>
+
+        <div class = "card-description d-flex">
+          <div>
+            <h2><%="From #{renting.starting_date} to #{renting.starting_date}"%></h2>
+            <p><%=renting.review_content%></p>
+          </div>
+         <img src="https://www.vindjeu.eu/prd/wp-content/uploads/2017/12/1676-Azul-1.jpg" alt="">
+
+        </div>
+
+
+
+        <div class ="card-validation">
+          <button type="button" class = "btn btn-success"><i class="fas fa-check"></i>
+
+</button>
+          <button type="button" class="btn btn-danger"><i class="fas fa-ban"></i>
+
+</button>
+        </div>
+
       </li>
         <% end %>
         </div>
