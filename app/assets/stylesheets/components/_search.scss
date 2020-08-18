@@ -1,0 +1,70 @@
+.float-container {
+  padding: 0px;
+  position: relative;
+  margin-left: 0%;
+}
+
+.float-container input {
+  background-color: #F9F9FC;
+  font-size: 16px;
+  padding: 30px 10px 12px;
+  width: 100%;
+  float: left;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  height:45px !important;
+  border-right-style: none
+}
+
+#left-corner-input {
+  border-radius: 15px 0px 0px 15px;
+  margin-left: 0px !important;
+  min-width: 150px;
+
+}
+
+#address-input {
+  width: 250px;
+}
+
+
+#search-btn {
+  background-color:#F9F9FC;
+  border: 1px solid #ced4da;
+  border-radius: 0px 15px 15px 0px;
+  margin-left: -1px !important;
+  height:45px;
+  font-size: 15px;
+  width:50px
+}
+
+.float-container label {
+  font-size: 12px;
+  font-weight: 100;
+  position: absolute;
+  padding-left: 10px;
+  width:150px
+}
+
+
+
+@media (max-width: 800px) {
+  .inline input {
+    margin: 5px 0;
+    border-radius: 15px 15px 15px 15px !important;
+    height: 48px
+
+  }
+
+  .inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  label {
+
+    padding-top: 7px;
+
+}
+
+}
