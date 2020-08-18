@@ -8,12 +8,22 @@
   <ul>
     <li><%= @board_game.description %></li>
     <li><%= @board_game.comment %></li>
+    <li><%= @board_game.price %></li>
   </ul>
 </div>
 
 <div class="container">
-  <%= link_to 'New Renting', new_board_game_renting_path(@board_game), class:"btn btn-primary" %>
+  <div class= 'row'>
+    <div class='col-4'>
+      <%= simple_form_for [@board_game, @renting] do |f| %>
+        <%= f.input :starting_date, as: :date, html5: true %>
+        <%= f.input :ending_date, as: :date, html5: true %>
+        <%= f.submit class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
 
 
 
