@@ -3,10 +3,10 @@
 
 <h1> All board games</h1>
 
-<div class=“container”>
-  <div class=“row”>
+<div class=''>
+  <div class= 'row'>
     <div class='col-8'>
-      <ul class = "d-flex align-items-center  justify-content-center">
+      <ul class = "d-flex align-items-center justify-content-center">
         <% @board_games.each do |board_game| %>
           <li class = "card item" style="margin: 15px ; height: 400px" >
             <h4><%=board_game.name %></h4>
@@ -15,8 +15,8 @@
         <% end %>
       </ul>
     </div>
-    <div class=“col-4”>
-      <img src="https://img-0.journaldunet.com/TUIoMZoSVMCDMXl0WUNfotBBS8U=/1280x/smart/2b7b473c1ebe416ead81f3f6179a1d75/ccmcms-jdn/11436203.jpg" alt="">
+    <div class='col-4 d-flex justify-content-center'>
+      <img src="https://img-0.journaldunet.com/TUIoMZoSVMCDMXl0WUNfotBBS8U=/1280x/smart/2b7b473c1ebe416ead81f3f6179a1d75/ccmcms-jdn/11436203.jpg" alt="" style = "width:600px; ">
     </div>
   </div>
 </div>
