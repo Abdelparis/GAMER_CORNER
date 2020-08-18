@@ -1,0 +1,19 @@
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80" alt=""  width="1100" height="500">
+  <h1><%= @board_game.name %></h1>
+</div>
+
+
+<div class="container">
+  <ul>
+    <li><%= @board_game.description %></li>
+    <li><%= @board_game.comment %></li>
+  </ul>
+</div>
+
+<div class="container">
+  <%= link_to 'New Renting', new_board_game_renting_path(@board_game), class:"btn btn-primary" %>
+</div>
+
+
+

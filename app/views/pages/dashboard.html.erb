@@ -1,0 +1,26 @@
+<h1> All you requests</h1>
+
+<div class=''>
+  <div class= 'row'>
+    <div class='col-12'>
+      <ul class = "d-flex align-items-center justify-content-center">
+
+       <%@rentings.each do |renting| %>
+      <li>
+        <div class = card-product>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="card-product-infos">
+            <h2>Nickanem</h2>
+            <p><%=renting.user.email%></p>
+          </div>
+        <h2><%=renting.starting_date%></h2>
+        <%=renting.review_content%>
+      </li>
+        <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
