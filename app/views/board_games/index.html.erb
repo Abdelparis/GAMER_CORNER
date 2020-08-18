@@ -1,0 +1,22 @@
+<div class="container">
+  <h1> All board games</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <ul>
+        <% @board_games.each do |board_game| %>
+          <li>
+          <%= board_game.name %>
+          <%= board_game.description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-4">
+      <img src="https://images.unsplash.com/photo-1478860409698-8707f313ee8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80" alt="">
+    </div>
+  </div>
+</div>
+
