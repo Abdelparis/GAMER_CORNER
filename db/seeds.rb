@@ -38,4 +38,26 @@ rentings = Renting.create(
   user_id: User.maximum(:id)
   )
 
+
+rentings = Renting.create(
+  starting_date: Faker::Date.between(from: 2.days.ago, to: 1.days.ago),
+  ending_date: Faker::Date.between(from: Date.today, to: Date.today),
+  review_content: Faker::Lorem.sentence(word_count: 15),
+  review_rating: 3,
+  status: "pending",
+  board_game_id: BoardGame.maximum(:id),
+  user_id: User.maximum(:id)
+  )
+
+rentings = Renting.create(
+  starting_date: Faker::Date.between(from: 2.days.ago, to: 1.days.ago),
+  ending_date: Faker::Date.between(from: Date.today, to: Date.today),
+  review_content: Faker::Lorem.sentence(word_count: 15),
+  review_rating: 3,
+  status: "pending",
+  board_game_id: BoardGame.minimum(:id),
+  user_id: User.maximum(:id)
+  )
+
+
 puts 'Finished!'
