@@ -5,8 +5,16 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @rentings = current_user.rentings
-    @count = rand(0..3)
+    @params = params[:status]
+    if !@params.present?
+      @rentings = current_user.rentings
+    elsif @params == "pending"
+      @rentings = current_user.rentings.where(status: @params)
+    elsif @params == "validated"
+      @rentings = current_user.rentings.where(status: @params)
+    elsif @params == "rejected"
+      @rentings = current_user.rentings.where(status: @params)
+    end
+    # @count = rand(0..3)
   end
-
 end
