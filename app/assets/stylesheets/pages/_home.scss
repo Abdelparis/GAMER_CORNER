@@ -1,32 +1,32 @@
 .banner {
   background-size: cover;
-  background-position: center;
-  padding: 150px 0px ;
+  background-position:72% 72%;
+  padding: 150px;
   margin-bottom: 50px;
 }
 
 .banner h1 {
   margin: 0;
-  color: #F4D367;
+  color: #122435;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
-  text-align: top;
+  text-align: left;
 }
 
 .banner p {
   font-size: 20px;
-  color: #E2EBF4;
+  color: white;
   opacity: .8;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  text-align: top;
+  text-align: left;
 }// Specific CSS for your home-page
 
 .title {
   font-size: 32px;
-  color: #E49D51;
+  color: #B15E0F;
   opacity: .4;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
   text-align: center;
   padding-top: 20px;
   font-weight: bold;
