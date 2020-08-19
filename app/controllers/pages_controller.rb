@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @rentings = current_user.renting
+    @rentings = current_user.rentings
     @count = rand(0..3)
   end
 
