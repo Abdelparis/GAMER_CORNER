@@ -1,17 +1,16 @@
-<div class="container">
-  <div class="formulaire_container" style="background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.8)), url(<%= image_url "games_pions.png" %>);">
-    <h1 class="formulaire_title">Add your board game</h1>
-    <div class = "formulaire">
-      <div class = "col-8">
-       <%= simple_form_for [@user, @board_game] do |f| %>
-          <%= f.input :name %>
-          <%= f.input :address %>
-          <%= f.input :description, required: false %>
-          <%= f.input :comment, required: false %>
-          <%= f.input :photo, required: false %>
-          <%= f.submit class: "btn btn-primary"%>
-        <%end%>
-      </div>
+<h1>hello</h1>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-6">
+     <%= simple_form_for [@user, @board_game] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :description, required: false %>
+        <%= f.input :comment, required: false %>
+        <%= f.input :price, required: false %>
+        <%= f.input :photo, required: false %>
+        <%= f.submit class: "btn btn-primary"%>
+      <%end%>
     </div>
   </div>
 </div>
