@@ -1,5 +1,14 @@
 class BoardGamesController < ApplicationController
   def index
+    @board_games = BoardGame.geocoded
+    @markers = @board_games.map do |board_game|
+      {
+        lat: board_game.latitude,
+        lng: board_game.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { board_game: board_game })
+      }
+    end
+
     @board_games = policy_scope(BoardGame).order(created_at: :desc)
     @params = params[:search]
     if !@params.present?
