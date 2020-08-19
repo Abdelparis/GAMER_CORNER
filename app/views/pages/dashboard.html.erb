@@ -30,15 +30,15 @@
                   <h2 id="date"><%=" #{(renting.ending_date - renting.starting_date).to_i } day - From #{renting.starting_date} to #{renting.starting_date}"%></h2>
                   <h2 id="price"> Price: 20 €</h2>
                 </div>
-            </div>
+              </div>
 
-        <div class = "card-description">
-          <div>
-            <h2><i class="fas fa-dice"></i><%=" #{renting.board_game.name}"%></h2>
-            <img src="https://www.vindjeu.eu/prd/wp-content/uploads/2017/12/1676-Azul-1.jpg" alt="">
-          </div>
-          </div>
-          </div>
+              <div class = "card-description">
+                <div>
+                  <h2><i class="fas fa-dice"></i><%=" #{renting.board_game.name}"%></h2>
+                  <%= cl_image_tag renting.board_game.photo.key %>
+                </div>
+              </div>
+              </div>
 
 
           <div class ="card-validation">
