@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require "open-uri"
 require 'faker'
 
 Renting.destroy_all
@@ -16,17 +16,50 @@ users = User.create([{ password: "123456", email: "owner@gmail.com" }, { passwor
 
 
 puts 'Creating 3 fake board games...'
-3.times do
-  board_game = BoardGame.new(
-    name:    Faker::Game.title,
-    description: Faker::Lorem.sentence(word_count: 30),
-    comment: Faker::Lorem.sentence(word_count: 15),
-    address: Faker::Address.street_address,
-    available: Faker::Boolean.boolean,
+
+  monopoly = BoardGame.new(
+    name: "Monopoly",
+    description: "Objectif : être le joueur le plus riche à la fin de la partie, lorsque les autres joueurs ont fait faillite. Pour cela n'hésitez pas à acheter, vendre, construire et spéculer !",
+    comment: "J'adore ce jeu !",
+    address: "10 rue Nollet Paris",
+    available: true,
     user_id: User.minimum(:id)
   )
-  board_game.save!
-end
+  file = URI.open('https://images-na.ssl-images-amazon.com/images/I/91MhR-u3-hL._AC_SL1500_.jpg')
+
+  monopoly.photo.attach(io: file, filename: 'monopoly.png', content_type: 'image/jpg')
+
+  monopoly.save!
+
+
+  azul = BoardGame.new(
+    name: "Azul",
+    description: "Prenez votre truelle et faites ressortir vos talents d'artisan. Constituez la plus belle mosaïque",
+    comment: "Meilleur jeu, je KIFFE",
+    address: "rue Oberkampf, Paris",
+    available: false,
+    user_id: User.minimum(:id)
+  )
+
+  file = URI.open('https://cdn2.philibertnet.com/402193-thickbox_default/azul.jpg')
+
+  azul.photo.attach(io: file, filename: 'azul.png', content_type: 'image/jpg')
+  azul.save!
+
+ seven_wonders = BoardGame.new(
+    name: "Seven Wonders",
+    description: "Dans 7 Wonders, prenez la tête de l'une des sept grandes cités du monde antique et laissez votre empreinte dans l'histoire des civilisations",
+    comment: "Super pour jouer entre Amis",
+    address: "4 place de clichy",
+    available: true,
+    user_id: User.minimum(:id)
+  )
+
+  file = URI.open('https://alloescape.fr/wp-content/uploads/2018/05/7-wonders-vf.jpg')
+
+  seven_wonders.photo.attach(io: file, filename: 'seven_wonders.png', content_type: 'image/jpg')
+  seven_wonders.save!
+
 
 rentings = Renting.create(
   starting_date: Faker::Date.between(from: 2.days.ago, to: 1.days.ago),
@@ -45,7 +78,7 @@ rentings = Renting.create(
   review_content: Faker::Lorem.sentence(word_count: 15),
   review_rating: 3,
   status: "pending",
-  board_game_id: BoardGame.maximum(:id),
+  board_game_id: BoardGame.maximum(:id)-1,
   user_id: User.maximum(:id)
   )
 

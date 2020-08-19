@@ -64,15 +64,16 @@
 }
 
 .card-description {
-  margin-left: 30px
+
 
 }
 
 .card-description img {
-  width: 125px;
-  object-fit: cover;
+  object-fit: contain;
+  width: 150px;
   margin-top: 10px;
   border-radius: 4px
+
 }
 
 .card-description p {
