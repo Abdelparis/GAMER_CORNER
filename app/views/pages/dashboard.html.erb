@@ -1,12 +1,17 @@
 
 <div class='border-bottom'>
   <h2 style = "text-align: center" class = "mt-3"> All you requests</h2>
-      <%= current_user.rentings.count %>
+
+      <% all = current_user.rentings.count %>
+      <% pending = current_user.rentings.where(status:"pending").count %>
+      <% validated = current_user.rentings.where(status:"validated").count %>
+      <% rejected = current_user.rentings.where(status:"rejected").count %>
+
     <div class = "d-flex mb-3 justify-content-center">
-      <a href="dashboard" class="btn btn-ghost"> All <i class="fas fa-dice"></i></a>
-      <a href="dashboard?status=pending" class="btn btn-ghost">3 Pending <i class="far fa-clock"></i></a>
-      <a href="dashboard?status=validated" class="btn btn-ghost">4 Accepted <i class="fas fa-check"></i></a>
-      <a href="dashboard?status=rejected" class="btn btn-ghost">5 Rejected <i class="far fa-times-circle"></i></a>
+      <a href="dashboard" class="btn btn-ghost"> <%="#{all} rentings "%><i class="fas fa-dice"></i></a>
+      <a href="dashboard?status=pending" class="btn btn-ghost"><%="#{pending} Pending "%> <i class="far fa-clock"></i></a>
+      <a href="dashboard?status=validated" class="btn btn-ghost"><%="#{validated} Accepted "%><i class="fas fa-check"></i></a>
+      <a href="dashboard?status=rejected" class="btn btn-ghost"><%="#{rejected} Rejected "%><i class="far fa-times-circle"></i></a>
     </div>
 
 </div>
