@@ -12,7 +12,8 @@
   </ul>
 </div>
 
-<div class="container">
+<div class="cards-container">
+  <div class="container">
   <div class= 'row'>
     <div class='col-4'>
       <%= simple_form_for [@board_game, @renting] do |f| %>
@@ -20,6 +21,7 @@
         <%= f.input :ending_date, as: :date, html5: true %>
         <%= f.submit class:"btn btn-primary" %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
