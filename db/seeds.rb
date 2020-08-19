@@ -21,7 +21,7 @@ puts 'Creating 3 fake board games...'
     name:    Faker::Game.title,
     description: Faker::Lorem.sentence(word_count: 30),
     comment: Faker::Lorem.sentence(word_count: 15),
-    address: Faker::Address.street_address,
+    address: "16 villa gaudelet, paris",
     available: Faker::Boolean.boolean,
     user_id: User.minimum(:id)
   )
