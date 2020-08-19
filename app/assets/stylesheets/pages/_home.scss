@@ -1,7 +1,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 150px 0px ;
+  margin-bottom: 50px;
 }
 
 .banner h1 {
@@ -20,3 +21,40 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
   text-align: top;
 }// Specific CSS for your home-page
+
+h2 {
+  font-size: 32px;
+  color: #E49D51;
+  opacity: .4;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+}// Specific CSS for your home-page
+
+.icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
+  flex-grow: 1;
+  margin-right: 100px;
+  margin-left: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+.icon {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
