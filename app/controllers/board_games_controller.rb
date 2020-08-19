@@ -27,8 +27,16 @@ class BoardGamesController < ApplicationController
   end
 
   def create
-    @board_game.user = current_user
+    @board_game = BoardGame.new(board_game_params)
     authorize @board_game
+    @board_game.user = current_user
+    respond_to do |format|
+      if @board_game.save
+        format.html { redirect_to board_game_path(@board_game), notice: 'Board game was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def update
@@ -37,5 +45,11 @@ class BoardGamesController < ApplicationController
 
   def destroy
     authorize @board_game
+  end
+
+  private
+
+  def board_game_params
+    params.require(:board_game).permit(:name, :description, :comment, :address, :photo)
   end
 end

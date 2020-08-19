@@ -1,0 +1,15 @@
+<h1>hello</h1>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-6">
+     <%= simple_form_for [@user, @board_game] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :description, required: false %>
+        <%= f.input :comment, required: false %>
+        <%= f.input :photo, required: false %>
+        <%= f.submit class: "btn btn-primary"%>
+      <%end%>
+    </div>
+  </div>
+</div>
