@@ -1,6 +1,7 @@
 class BoardGamesController < ApplicationController
   def index
-    @board_games = BoardGame.geocoded
+    @board_games = BoardGame.geocoded.near(params[:search][:address], 15)
+
     @markers = @board_games.map do |board_game|
       {
         lat: board_game.latitude,
