@@ -1,0 +1,11 @@
+@import url(components/logo.css);
+.header{
+  display:flex;
+}
+.logo{
+  height:50px;
+  width:50px;
+}
+.avatar dropdown-toggle{
+border-radius:50px ;
+}
