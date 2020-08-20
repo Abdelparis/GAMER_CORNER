@@ -1,14 +1,20 @@
 .card-trip {
+  margin-left: 30px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 350px;
+  border-radius: 10px;
 }
 
 .card-trip > img {
-  height: 200px;
+   object-fit: contain;
   width: 100%;
-  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 4px;
+  margin: auto;
+  height: 175px;
+  padding-top: 20px;
 }
 
 .card-trip h2 {
@@ -25,8 +31,8 @@
 
 .cards {
 display: grid;
-grid-template-columns: 1fr 1fr;
-grid-gap: 8px;
+grid-template-columns: 1fr 1fr 1fr;
+grid-gap: 30px;
 }
 
 .card-trip .card-trip-infos {
@@ -39,10 +45,10 @@ grid-gap: 8px;
 
 .btn-game {
   color : white;
-  background-color: #F7BD58;
+  background-color: #DE9720;
   font-weight: lighter;
   letter-spacing: 1px;
-  padding: 15px, 15px;
+  padding: 8px;
   border-radius: 5px;
   text-decoration: none;
   border: 1px solid transparent;
@@ -50,13 +56,19 @@ grid-gap: 8px;
 }
 
 .btn-game:hover {
-  border: 1px solid #F7BD58;
+  border: 1px solid #DE9720;
   background: transparent;
-  color: #F7BD58;
+  color: #DE9720;
 }
 
 .flexbox {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+
+#map {
+  margin-right :30px;
+  border-radius : 2px;
 }

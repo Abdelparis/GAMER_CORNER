@@ -23,6 +23,7 @@ class BoardGamesController < ApplicationController
   def show
     @renting = Renting.new
     @board_game = BoardGame.find(params[:id])
+    @rentings = Renting.where(board_game: @board_game)
     authorize @board_game
   end
 
@@ -59,6 +60,6 @@ class BoardGamesController < ApplicationController
   private
 
   def board_game_params
-    params.require(:board_game).permit(:name, :description, :comment, :address, :photo)
+    params.require(:board_game).permit(:name, :description, :comment, :address, :photo, :price)
   end
 end

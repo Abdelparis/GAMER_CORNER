@@ -60,6 +60,20 @@ puts 'Creating 3 fake board games...'
   seven_wonders.photo.attach(io: file, filename: 'seven_wonders.png', content_type: 'image/jpg')
   seven_wonders.save!
 
+  scrabble =  BoardGame.new(
+    name: "Scrabble",
+    description: "Le Scrabble est un jeu de société et un jeu de lettres où l'objectif est de cumuler des points, sur la base de tirages aléatoires de lettres, en créant des mots sur une grille carrée, dont certaines cases sont primées",
+    comment: "Super pour jouer entre Amis",
+    address: "20 avenue de clichy",
+    available: true,
+    user_id: User.minimum(:id)
+  )
+
+  file = URI.open('https://images-na.ssl-images-amazon.com/images/I/81ghItchj1L._AC_SX355_.jpg')
+
+  scrabble.photo.attach(io: file, filename: 'scrabble.png', content_type: 'image/jpg')
+  scrabble.save!
+
 
 rentings = Renting.create(
   starting_date: Faker::Date.between(from: 2.days.ago, to: 1.days.ago),
