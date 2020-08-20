@@ -1,7 +1,23 @@
 <div class="container">
-  <div class="image">
+  <div class="my-images d-flex">
+  <div class="image" id="">
     <%= cl_image_tag @board_game.photo.key, height: 600, width: 800%>
-  </div>
+     </div>
+     <div class="images">
+     <div >
+     <%= cl_image_tag @board_game.photo.key, class: "image-show"%>
+      </div>
+      <div>
+      <%= cl_image_tag @board_game.photo.key, class: "image-show"%>
+      </div>
+      <div>
+       <%= cl_image_tag @board_game.photo.key, class: "image-show"%>
+       </div>
+       <div>
+        <%= cl_image_tag @board_game.photo.key, class: "image-show"%>
+      </div>
+     </div>
+     </div>
   <h1><%= @board_game.name %></h1>
 </div>
 
