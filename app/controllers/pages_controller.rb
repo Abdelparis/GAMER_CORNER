@@ -18,6 +18,18 @@ class PagesController < ApplicationController
     # @count = rand(0..3)
   end
 
+  def dashboard_renter
+    @params = params[:status]
+
+    if !@params.present?
+      @renter = current_user.renter
+    elsif @params == "currently"
+      @renter = current_user.renter.where("ending_date::date <= '#{Date.today}'")
+    elsif @params == "history"
+      @renter = current_user.renter.where("ending_date::date > '#{Date.today}'")
+    end
+  end
+
   def accept
   end
 end
