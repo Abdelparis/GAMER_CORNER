@@ -2,8 +2,8 @@
 
     <div class ="row">
       <div class = "col-lg-6">
-          <div class= "margin-t">
-            <%= cl_image_tag @board_game.photo.key, height: 600, width: 800%>
+          <div class= "box_image">
+            <%= cl_image_tag @board_game.photo.key, height: 450, width: 450  %>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
 
 
 
-      <div class = "border-bottom" id="map">
+      <div class = "border-bottom" id="review">
         <ul>
           <% @rentings.each do |renting| %>
             <li><%=renting.review_content%></li>
