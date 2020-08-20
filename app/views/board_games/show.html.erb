@@ -1,29 +1,44 @@
-<div class="container">
-  <div class="image">
-    <%= cl_image_tag @board_game.photo.key, height: 600, width: 800%>
-  </div>
+<div class="">
   <h1><%= @board_game.name %></h1>
-</div>
+  <div class ="row space-between">
+    <div class = "col-6">
 
+        <%= cl_image_tag @board_game.photo.key, height: 600, width: 800%>
 
-<div class="container">
-  <ul>
-    <li><%= @board_game.description %></li>
-    <li><%= @board_game.comment %></li>
-    <li><%= @board_game.price %></li>
-  </ul>
-</div>
+    </div>
 
-<div class="cards-container">
-  <div class="container">
-  <div class= 'row'>
-    <div class='col-4'>
-      <%= simple_form_for [@board_game, @renting] do |f| %>
-        <%= f.input :starting_date, as: :date, html5: true %>
-        <%= f.input :ending_date, as: :date, html5: true %>
-        <%= f.submit class:"btn btn-primary" %>
-      <% end %>
-      </div>
+    <div class='col-6'>
+        <ul>
+          <li><%= @board_game.description %></li>
+          <li><%= @board_game.comment %></li>
+          <li><%= @board_game.price %></li>
+        </ul>
+      <div >
+    <%= simple_form_for [@board_game, @renting] do |f| %>
+      <%= f.input :starting_date, as: :date, html5: true %>
+      <%= f.input :ending_date, as: :date, html5: true %>
+      <%= f.submit class:"btn btn-primary" %>
+  <% end %>
+  </div>
+  </div>
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-12">
+      <ul>
+        <% @rentings.each do |renting| %>
+          <li><%=renting.review_content%></li>
+          <li style = "display:inline">
+            <% renting.review_rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end%>
+            <% (5-renting.review_rating).times do %>
+            <i class="far fa-star"></i>
+            <% end%>
+
+          </li>
+        <%end%>
+      </ul>
     </div>
   </div>
 </div>

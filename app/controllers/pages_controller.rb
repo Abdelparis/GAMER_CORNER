@@ -17,4 +17,7 @@ class PagesController < ApplicationController
     end
     # @count = rand(0..3)
   end
+
+  def accept
+  end
 end
