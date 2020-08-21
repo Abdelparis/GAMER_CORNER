@@ -12,7 +12,7 @@
 
           <div class = "d-flex justify-content-between border-bottom">
             <h1><%= @board_game.name %></h1>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large"%>
+            <%= cl_image_tag @board_game.user.photo.key, class: "avatar-large"%>
           </div>
 
               <div id = "price" class ="d-flex">

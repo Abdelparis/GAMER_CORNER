@@ -12,7 +12,15 @@ Renting.destroy_all
 BoardGame.destroy_all
 User.destroy_all
 
-users = User.create([{ password: "123456", email: "owner@gmail.com" }, { password: "123456", email: "renter@gmail.com" }])
+# users = User.create([{ password: "123456", email: "owner@gmail.com" }, { password: "123456", email: "renter@gmail.com" }])
+
+user_1 = User.create(password: "123456", email: "owner@gmail.com")
+user_2 = User.create( password: "123456", email: "renter@gmail.com")
+
+file_1 = URI.open('https://www.leberetfrancais.com/4914-large_default/beret-classique-chasseur-homme.jpg')
+user_1.photo.attach(io: file_1, filename: 'nes.png', content_type: 'image/png')
+file_2 = URI.open('https://www.leberetfrancais.com/4906-large_default/beret-mode-noir-femme.jpg')
+user_2.photo.attach(io: file_2, filename: 'nes.png', content_type: 'image/png')
 
 
 puts 'Creating 3 fake board games...'
@@ -38,7 +46,7 @@ puts 'Creating 3 fake board games...'
     comment: "Meilleur jeu, je KIFFE",
     address: "rue Oberkampf, Paris",
     available: false,
-    user_id: User.minimum(:id)
+    user_id: User.maximum(:id)
   )
 
   file = URI.open('https://cdn2.philibertnet.com/402193-thickbox_default/azul.jpg')
@@ -52,7 +60,7 @@ puts 'Creating 3 fake board games...'
     comment: "Super pour jouer entre Amis",
     address: "4 place de clichy",
     available: true,
-    user_id: User.minimum(:id)
+    user_id: User.maximum(:id)
   )
 
   file = URI.open('https://alloescape.fr/wp-content/uploads/2018/05/7-wonders-vf.jpg')
