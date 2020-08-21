@@ -2,19 +2,24 @@
 <html>
   <head>
     <title>GAMERCorner</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&family=Poppins:wght@500&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= favicon_link_tag asset_path("logo.ico") %>
   </head>
 
   <body style = "background-color: white">
     <%= render 'shared/navbar' %>
+    <div class="content-wrapper">
     <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
+
   </body>
 </html>
