@@ -14,11 +14,11 @@ class PagesController < ApplicationController
     @params = params[:status]
 
     if !@params.present?
-      @renter = current_user.renter
+      @renter = current_user.rentings
     elsif @params == "currently"
-      @renter = current_user.renter.where("ending_date::date <= '#{Date.today}'")
+      @renter = current_user.rentings.where("ending_date::date >= '#{Date.today}'")
     elsif @params == "history"
-      @renter = current_user.renter.where("ending_date::date > '#{Date.today}'")
+      @renter = current_user.rentings.where("ending_date::date < '#{Date.today}'")
     end
   end
 
