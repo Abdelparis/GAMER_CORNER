@@ -16,7 +16,7 @@
           <div class = "card-product ">
               <div class = "card-information space-between" >
                 <div class = "card-user"  >
-                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+                  <%= cl_image_tag current_user.photo.key, class: "avatar" %>
                   <div class="card-user-infos">
                   <h2><%=renting.user.email%></h2>
                   <h3> Message :</h3>
