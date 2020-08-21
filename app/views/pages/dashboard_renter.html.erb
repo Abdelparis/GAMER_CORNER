@@ -1,5 +1,5 @@
 <div class='border-bottom'>
-  <h2 style = "text-align: center" class = "mt-3"> All you requests</h2>
+  <h2 class="dashboard-renter"style = "text-align: center" class = "mt-3"> All your requests</h2>
 
       <% all = current_user.renter.count %>
       <% pending = current_user.renter.where(status:"currently").count %>
