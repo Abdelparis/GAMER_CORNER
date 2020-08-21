@@ -44,12 +44,7 @@
           <% @rentings.each do |renting| %>
             <li><%=renting.review_content%></li>
             <li style = "display:inline">
-              <% renting.review_rating.times do %>
-                <i class="fas fa-star"></i>
-              <% end%>
-              <% (5-renting.review_rating).times do %>
-              <i class="far fa-star"></i>
-              <% end%>
+          <!--  -->
 
             </li>
             <%end%>

@@ -21,7 +21,9 @@
     <div class='col-12'>
       <ul class = "align-items-center justify-content-center">
 
-       <%@rentings.each do |renting| %>
+
+       <%@board_games.each do |board_game|
+          board_game.rentings.each do |renting| %>
         <li class = "no-li-style">
           <div class = "card-product ">
               <div class = "card-information space-between" >
@@ -49,11 +51,10 @@
             <button type="button" class = "btn btn-ok">Accept <i class="fas fa-check"></i></button>
             <button type="button" class="btn btn-no"><i class="far fa-times-circle"></i></i></button>
           </div>
-  </div>
-
 
 
       </li>
+      <% end %>
         <% end %>
         </div>
       </ul>
