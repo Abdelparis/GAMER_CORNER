@@ -34,7 +34,7 @@ class RentingsController < ApplicationController
     set_renting
     authorize @renting
     @renting.update(renting_params)
-    redirect_to dashboard_path
+    redirect_to renter_path, notice: 'Review was successfully accepted.'
   end
 
   def update_accepted
