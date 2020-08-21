@@ -1,0 +1,28 @@
+<div class='border-bottom'>
+  <h2 style = "text-align: center" class = "mt-3"> All you requests</h2>
+
+      <% all = current_user.renter.count %>
+      <% pending = current_user.renter.where(status:"currently").count %>
+      <% validated = current_user.renter.where(status:"history").count %>
+
+    <div class = "d-flex mb-3 justify-content-center">
+      <a href="renter?status=currently" class="btn btn-ghost"><%="#{pending} currently "%> <i class="far fa-clock"></i></a>
+      <a href="renter?status=history" class="btn btn-ghost"><%="#{validated} history "%><i class="fas fa-check"></i></a>
+    </div>
+
+</div>
+<%@renter.each do |renting| %>
+        <li class = "no-li-style">
+          <div class = "card-product ">
+              <div class = "card-information space-between" >
+                <div class = "card-user"  >
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+                  <div class="card-user-infos">
+                  <h2><%=renting.user.email%></h2>
+                  <h3> Message :</h3>
+                  <p><%=renting.review_content%></p>
+                  <h2 id="date"><%=" #{(renting.ending_date - renting.starting_date).to_i } day - From #{renting.starting_date} to #{renting.starting_date}"%></h2>
+                  <h2 id="price"> Price: 20 €</h2>
+                </div>
+              </div>
+        <% end %>
