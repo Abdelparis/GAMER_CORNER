@@ -23,27 +23,25 @@
                 <div class = "card-user"  >
                   <%= cl_image_tag current_user.photo.key, class: "avatar" %>
                   <div class="card-user-infos">
-                  <h2><%=renting.user.email%></h2>
-                  <h2 id="date"><%=" #{(renting.ending_date - renting.starting_date).to_i } day - From #{renting.starting_date} to #{renting.starting_date}"%></h2>
-                  <h1 id="price"><%=renting.board_game.price%>€</h1>
+                    <h2><%=renting.user.email%></h2>
+                    <h2 id="date"><%=" #{(renting.ending_date - renting.starting_date).to_i } day - From #{renting.starting_date} to #{renting.starting_date}"%></h2>
+                    <h1 id="price"><%=renting.board_game.price%>€</h1>
                 </div>
               </div>
-        <% end %>
-</div>
+    </div>
 
-              <div class = "card-description">
-                <div>
-                  <h2><i class="fas fa-dice"></i><%=" #{renting.board_game.name}"%></h2>
-                  <%= cl_image_tag renting.board_game.photo.key %>
-                </div>
-              </div>
-              </div>
 
-          <div class ="card-validation">
-          <!--   <button type="button" class = "btn btn-ok" id="button-accept">Accept <i class="fas fa-check"></i></button> -->
-          <%= link_to 'Add a review', review_path(renting), class:"btn btn-game", method: :get%>
-
-          </div>
+    <div class = "card-description">
+      <div>
+        <h2><i class="fas fa-dice"></i><%=" #{renting.board_game.name}"%></h2>
+        <%= cl_image_tag renting.board_game.photo.key %>
+      </div>
+      <div class ="card-validation" style="position: absolute; left: 10px; bottom: 0;">
+        <!--   <button type="button" class = "btn btn-ok" id="button-accept">Accept <i class="fas fa-check"></i></button> -->
+        <%= link_to 'Add a review', review_path(renting), class:"btn btn-game", method: :get%>
+      </div>
+    </div>
+    </div>
 
 
       </li>
@@ -54,4 +52,5 @@
       </ul>
     </div>
   </div>
+</div>
 </div>
