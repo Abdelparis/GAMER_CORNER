@@ -7,16 +7,6 @@ class PagesController < ApplicationController
   def dashboard
     @params = params[:status]
     @board_games = current_user.board_games
-
-    if !@params.present?
-      @rentings = current_user.rentings
-    elsif @params == "pending"
-      @rentings = current_user.rentings.where(status: @params)
-    elsif @params == "validated"
-      @rentings = current_user.rentings.where(status: @params)
-    elsif @params == "rejected"
-      @rentings = current_user.rentings.where(status: @params)
-    end
     # @count = rand(0..3)
   end
 
@@ -24,14 +14,11 @@ class PagesController < ApplicationController
     @params = params[:status]
 
     if !@params.present?
-      @renter = current_user.renter
+      @renter = current_user.rentings
     elsif @params == "currently"
-      @renter = current_user.renter.where("ending_date::date <= '#{Date.today}'")
+      @renter = current_user.rentings.where("ending_date::date >=  '#{Date.today}'")
     elsif @params == "history"
-      @renter = current_user.renter.where("ending_date::date > '#{Date.today}'")
+      @renter = current_user.rentings.where("ending_date::date < '#{Date.today}'")
     end
-  end
-
-  def accept
   end
 end

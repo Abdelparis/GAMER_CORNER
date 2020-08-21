@@ -3,7 +3,7 @@
     <div class ="row">
       <div class = "col-lg-6">
           <div class= "box_image">
-            <%= cl_image_tag @board_game.photo.key, height: 450, width: 450  %>
+            <%= cl_image_tag @board_game.photo.key, height: 450, width: 450 %>
         </div>
       </div>
 
@@ -12,7 +12,7 @@
 
           <div class = "d-flex justify-content-between border-bottom">
             <h1><%= @board_game.name %></h1>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large"%>
+            <%= cl_image_tag @board_game.user.photo.key, class: "avatar-large"%>
           </div>
 
               <div id = "price" class ="d-flex">
@@ -38,17 +38,33 @@
 
 
 
-
-      <div class = "border-bottom" id="review">
-        <ul>
+<div class="review">
+  <div class = "card-product">
+        <ul class = "no-li-style">
+          <% if @rentings == [] %>
+          <li><%="This game has no review"%></li>
+            <% 5.times do %>
+              <li style = "display:inline"><i class="far fa-star"></i></li>
+            <%end%>
+          <% else %>
           <% @rentings.each do |renting| %>
             <li><%=renting.review_content%></li>
             <li style = "display:inline">
-          <!--  -->
-
+              <% renting.review_rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end%>
+              <% (5-renting.review_rating).times do %>
+              <i class="far fa-star"></i>
+            <% end%>
             </li>
             <%end%>
+          <%end%>
         </ul>
+         <div class = "avatar_review"  >
+                  <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+                  <div class="card-user-infos">
       </div>
+</div>
+
 
  </div>

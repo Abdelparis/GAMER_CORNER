@@ -12,7 +12,15 @@ Renting.destroy_all
 BoardGame.destroy_all
 User.destroy_all
 
-users = User.create([{ password: "123456", email: "owner@gmail.com" }, { password: "123456", email: "renter@gmail.com" }])
+# users = User.create([{ password: "123456", email: "owner@gmail.com" }, { password: "123456", email: "renter@gmail.com" }])
+
+user_1 = User.create(password: "123456", email: "owner@gmail.com")
+user_2 = User.create( password: "123456", email: "renter@gmail.com")
+
+file_1 = URI.open('https://www.leberetfrancais.com/4914-large_default/beret-classique-chasseur-homme.jpg')
+user_1.photo.attach(io: file_1, filename: 'nes.png', content_type: 'image/png')
+file_2 = URI.open('https://www.leberetfrancais.com/4906-large_default/beret-mode-noir-femme.jpg')
+user_2.photo.attach(io: file_2, filename: 'nes.png', content_type: 'image/png')
 
 
 puts 'Creating 3 fake board games...'
@@ -23,6 +31,7 @@ puts 'Creating 3 fake board games...'
     comment: "J'adore ce jeu !",
     address: "10 rue Nollet Paris",
     available: true,
+    price: 3,
     user_id: User.minimum(:id)
   )
   file = URI.open('https://images-na.ssl-images-amazon.com/images/I/91MhR-u3-hL._AC_SL1500_.jpg')
@@ -38,6 +47,7 @@ puts 'Creating 3 fake board games...'
     comment: "Meilleur jeu, je KIFFE",
     address: "rue Oberkampf, Paris",
     available: false,
+    price: 5,
     user_id: User.minimum(:id)
   )
 
@@ -52,6 +62,7 @@ puts 'Creating 3 fake board games...'
     comment: "Super pour jouer entre Amis",
     address: "4 place de clichy",
     available: true,
+    price: 6,
     user_id: User.minimum(:id)
   )
 
@@ -66,7 +77,8 @@ puts 'Creating 3 fake board games...'
     comment: "Super pour jouer entre Amis",
     address: "20 avenue de clichy",
     available: true,
-    user_id: User.minimum(:id)
+    price: 7,
+    user_id: User.maximum(:id)
   )
 
   file = URI.open('https://images-na.ssl-images-amazon.com/images/I/81ghItchj1L._AC_SX355_.jpg')
@@ -76,12 +88,12 @@ puts 'Creating 3 fake board games...'
 
 
 rentings = Renting.create(
-  starting_date: Faker::Date.between(from: 2.days.ago, to: 1.days.ago),
-  ending_date: Faker::Date.between(from: Date.today, to: Date.today),
+  starting_date: Date.new(2019,7,31),
+  ending_date: Date.new(2019,8,3),
   review_content: Faker::Lorem.sentence(word_count: 15),
   review_rating: 3,
   status: "rejected",
-  board_game_id: BoardGame.maximum(:id),
+  board_game_id: BoardGame.minimum(:id),
   user_id: User.maximum(:id)
   )
 
@@ -101,9 +113,21 @@ rentings = Renting.create(
   ending_date: Faker::Date.between(from: Date.today, to: Date.today),
   review_content: Faker::Lorem.sentence(word_count: 15),
   review_rating: 3,
-  status: "validated",
-  board_game_id: BoardGame.minimum(:id),
+  status: "pending",
+  board_game_id: BoardGame.maximum(:id)-2,
   user_id: User.maximum(:id)
+  )
+
+
+
+rentings = Renting.create(
+  starting_date: Date.new(2019,7,31),
+  ending_date: Date.new(2019,8,3),
+  review_content: Faker::Lorem.sentence(word_count: 15),
+  review_rating: 3,
+  status: "validated",
+  board_game_id: BoardGame.maximum(:id),
+  user_id: User.minimum(:id)
   )
 
 

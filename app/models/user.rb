@@ -3,8 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
   has_many :board_games
-  has_many :renter, class_name: "Renting"
-  has_many :rentings, through: :board_games
+  has_many :rentings
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
