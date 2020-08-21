@@ -11,13 +11,11 @@
     </div>
 </div>
 
-
-<div></div>
+<div>
 <div class='container top-margin'>
   <div class= 'row'>
     <div class='col-12'>
       <ul class = "align-items-center justify-content-center">
-
         <% @renter.each do |renting| %>
          <li class = "no-li-style">
           <div class = "card-product ">
@@ -30,6 +28,8 @@
                   <h1 id="price"><%=renting.board_game.price%>€</h1>
                 </div>
               </div>
+        <% end %>
+</div>
 
               <div class = "card-description">
                 <div>
@@ -55,4 +55,3 @@
     </div>
   </div>
 </div>
-
