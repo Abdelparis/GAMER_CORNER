@@ -12,6 +12,7 @@
 </div>
 
 
+<div></div>
 <div class='container top-margin'>
   <div class= 'row'>
     <div class='col-12'>
@@ -26,7 +27,7 @@
                   <div class="card-user-infos">
                   <h2><%=renting.user.email%></h2>
                   <h2 id="date"><%=" #{(renting.ending_date - renting.starting_date).to_i } day - From #{renting.starting_date} to #{renting.starting_date}"%></h2>
-                  <h2 id="price"> Price: 20 €</h2>
+                  <h1 id="price"><%=renting.board_game.price%>€</h1>
                 </div>
               </div>
 
