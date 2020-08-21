@@ -21,6 +21,14 @@ class RentingPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  def edit_renting?
+    true
+  end
+
+  def update_renting?
+    true
+  end
+
   def destroy?
     user_is_owner_or_admin?
   end

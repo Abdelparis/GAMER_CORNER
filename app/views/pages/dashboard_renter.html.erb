@@ -9,10 +9,20 @@
       <a href="renter?status=currently" class="btn btn-ghost"><%="#{pending} currently "%> <i class="far fa-clock"></i></a>
       <a href="renter?status=history" class="btn btn-ghost"><%="#{validated} history "%><i class="fas fa-check"></i></a>
     </div>
-
 </div>
-<%@renter.each do |renting| %>
-        <li class = "no-li-style">
+
+
+
+
+
+
+<div class='container top-margin'>
+  <div class= 'row'>
+    <div class='col-12'>
+      <ul class = "align-items-center justify-content-center">
+
+        <% @renter.each do |renting| %>
+         <li class = "no-li-style">
           <div class = "card-product ">
               <div class = "card-information space-between" >
                 <div class = "card-user"  >
@@ -25,4 +35,29 @@
                   <h2 id="price"> Price: 20 €</h2>
                 </div>
               </div>
-        <% end %>
+
+              <div class = "card-description">
+                <div>
+                  <h2><i class="fas fa-dice"></i><%=" #{renting.board_game.name}"%></h2>
+                  <%= cl_image_tag renting.board_game.photo.key %>
+                </div>
+              </div>
+              </div>
+
+          <div class ="card-validation">
+          <!--   <button type="button" class = "btn btn-ok" id="button-accept">Accept <i class="fas fa-check"></i></button> -->
+          <%= link_to 'Add a review', review_path(renting), class:"btn btn-success", method: :get, data: { confirm: 'Are you sure?' } %>
+
+          </div>
+
+
+      </li>
+      <%end%>
+
+
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+

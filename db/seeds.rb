@@ -46,7 +46,7 @@ puts 'Creating 3 fake board games...'
     comment: "Meilleur jeu, je KIFFE",
     address: "rue Oberkampf, Paris",
     available: false,
-    user_id: User.maximum(:id)
+    user_id: User.minimum(:id)
   )
 
   file = URI.open('https://cdn2.philibertnet.com/402193-thickbox_default/azul.jpg')
@@ -60,7 +60,7 @@ puts 'Creating 3 fake board games...'
     comment: "Super pour jouer entre Amis",
     address: "4 place de clichy",
     available: true,
-    user_id: User.maximum(:id)
+    user_id: User.minimum(:id)
   )
 
   file = URI.open('https://alloescape.fr/wp-content/uploads/2018/05/7-wonders-vf.jpg')
@@ -89,7 +89,7 @@ rentings = Renting.create(
   review_content: Faker::Lorem.sentence(word_count: 15),
   review_rating: 3,
   status: "rejected",
-  board_game_id: BoardGame.maximum(:id),
+  board_game_id: BoardGame.minimum(:id),
   user_id: User.maximum(:id)
   )
 
@@ -110,7 +110,7 @@ rentings = Renting.create(
   review_content: Faker::Lorem.sentence(word_count: 15),
   review_rating: 3,
   status: "validated",
-  board_game_id: BoardGame.minimum(:id),
+  board_game_id: BoardGame.maximum(:id),
   user_id: User.maximum(:id)
   )
 
