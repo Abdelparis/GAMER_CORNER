@@ -23,8 +23,16 @@ class RentingsController < ApplicationController
         # format.json { render json: @restaurant.errors, status: :unprocessable_entity }
       end
     end
-
   end
+
+  def update
+    set_renting
+    @renting.status = "Accepted"
+    authorize @renting
+    @renting.save
+    redirect_to dashboard_path, notice: 'Board Game was successfully updated.'
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -36,5 +44,4 @@ class RentingsController < ApplicationController
   def renting_params
     params.require(:renting).permit(:starting_date, :ending_date, :status)
   end
-
 end
