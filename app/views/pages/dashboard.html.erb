@@ -21,10 +21,19 @@
     <div class='col-12'>
       <ul class = "align-items-center justify-content-center">
 
+      <%@board_games.each do |board_game| %>
+        <% if !@params.present?%>
+          <%rentings = board_game.rentings%>
+        <% elsif @params == "pending"%>
+          <% rentings = board_game.rentings.select {|renting| renting.status == "pending"} %>
+        <% elsif @params == "validated"%>
+          <% rentings = board_game.rentings.select {|renting| renting.status == "validated"} %>
+        <% elsif @params == "rejected"%>
+          <% rentings = board_game.rentings.select {|renting| renting.status == "rejected"} %>
+        <% end %>
 
-       <%@board_games.each do |board_game|
-          board_game.rentings.each do |renting| %>
-        <li class = "no-li-style">
+        <% rentings.each do |renting| %>
+         <li class = "no-li-style">
           <div class = "card-product ">
               <div class = "card-information space-between" >
                 <div class = "card-user"  >
@@ -46,7 +55,6 @@
               </div>
               </div>
 
-
           <div class ="card-validation">
             <button type="button" class = "btn btn-ok">Accept <i class="fas fa-check"></i></button>
             <button type="button" class="btn btn-no"><i class="far fa-times-circle"></i></i></button>
@@ -54,8 +62,11 @@
 
 
       </li>
-      <% end %>
+
         <% end %>
+      <%end%>
+
+
         </div>
       </ul>
     </div>
