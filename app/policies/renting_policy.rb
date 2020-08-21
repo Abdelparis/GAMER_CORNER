@@ -13,7 +13,11 @@ class RentingPolicy < ApplicationPolicy
     true
   end
 
-  def update?
+  def update_accepted?
+    user_is_owner_or_admin?
+  end
+
+  def update_rejected?
     user_is_owner_or_admin?
   end
 
