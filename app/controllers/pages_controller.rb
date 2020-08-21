@@ -21,7 +21,4 @@ class PagesController < ApplicationController
       @renter = current_user.renter.where("ending_date::date > '#{Date.today}'")
     end
   end
-
-  def accept
-  end
 end

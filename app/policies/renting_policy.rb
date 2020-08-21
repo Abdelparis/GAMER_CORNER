@@ -13,7 +13,11 @@ class RentingPolicy < ApplicationPolicy
     true
   end
 
-  def update?
+  def update_accepted?
+    user_is_owner_or_admin?
+  end
+
+  def update_rejected?
     user_is_owner_or_admin?
   end
 
@@ -24,6 +28,6 @@ class RentingPolicy < ApplicationPolicy
   private
 
   def user_is_owner_or_admin?
-    @record.user == @user || @user.admin
+    record.board_game.user == user
   end
 end

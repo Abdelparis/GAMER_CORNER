@@ -56,8 +56,9 @@
               </div>
 
           <div class ="card-validation">
-            <button type="button" class = "btn btn-ok">Accept <i class="fas fa-check"></i></button>
-            <button type="button" class="btn btn-no"><i class="far fa-times-circle"></i></i></button>
+          <!--   <button type="button" class = "btn btn-ok" id="button-accept">Accept <i class="fas fa-check"></i></button> -->
+          <%= link_to 'Accept', accept_path(renting), class:"btn btn-success", method: :get, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Reject', reject_path(renting), class:"btn btn-danger", method: :get, data: { confirm: 'Are you sure?' } %>
           </div>
 
 
