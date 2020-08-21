@@ -2,8 +2,8 @@
 
     <div class ="row">
       <div class = "col-lg-6">
-          <div class= "margin-t">
-            <%= cl_image_tag @board_game.photo.key, height: 600, width: 800%>
+          <div class= "box_image">
+            <%= cl_image_tag @board_game.photo.key, height: 450, width: 450 %>
         </div>
       </div>
 
@@ -38,8 +38,8 @@
 
 
 
-
-      <div class = "border-bottom" id="map">
+<div class="review">
+  <div class = "card-product">
         <ul class = "no-li-style">
           <% if @rentings == [] %>
           <li><%="This game has no review"%></li>
@@ -60,6 +60,11 @@
             <%end%>
           <%end%>
         </ul>
+         <div class = "avatar_review"  >
+                  <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+                  <div class="card-user-infos">
       </div>
+</div>
+
 
  </div>
