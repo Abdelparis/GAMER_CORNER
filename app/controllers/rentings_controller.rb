@@ -25,6 +25,18 @@ class RentingsController < ApplicationController
     end
   end
 
+  def edit_renting
+    set_renting
+    authorize @renting
+  end
+
+  def update_renting
+    set_renting
+    authorize @renting
+    @renting.update(renting_params)
+    redirect_to dashboard_path
+  end
+
   def update_accepted
     set_renting
     @renting.status = "validated"
@@ -41,7 +53,6 @@ class RentingsController < ApplicationController
     redirect_to dashboard_path, notice: 'Board Game was successfully rejected.'
   end
 
-
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_renting
@@ -50,6 +61,6 @@ class RentingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def renting_params
-    params.require(:renting).permit(:starting_date, :ending_date, :status)
+    params.require(:renting).permit(:starting_date, :ending_date, :status, :review_rating, :review_content)
   end
 end
