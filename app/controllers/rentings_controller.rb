@@ -27,7 +27,7 @@ class RentingsController < ApplicationController
 
   def update_accepted
     set_renting
-    @renting.status = "Accepted"
+    @renting.status = "validated"
     authorize @renting
     @renting.save
     redirect_to dashboard_path, notice: 'Board Game was successfully accepted.'
@@ -35,7 +35,7 @@ class RentingsController < ApplicationController
 
   def update_rejected
     set_renting
-    @renting.status = "Accepted"
+    @renting.status = "rejected"
     authorize @renting
     @renting.save
     redirect_to dashboard_path, notice: 'Board Game was successfully rejected.'
